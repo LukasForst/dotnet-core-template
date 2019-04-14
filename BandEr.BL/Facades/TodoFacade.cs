@@ -37,7 +37,8 @@ namespace BandEr.BL.Facades
         public async Task<ValueDetailDto> GetAsync(int id)
         {
             var userId = int.Parse(_tenantProvider.GetUserId());
-            var entity = await _context.Values                
+            var entity = await _context.Values
+                .Include(x => x.Owner)
                 .Where(x => x.Owner.Id == userId)
                 .FirstOrDefaultAsync(x => x.Id == id)
                 ?? throw new NotFoundException<ValueEntity>(id);
