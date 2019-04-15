@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore;
+﻿using System.Linq;
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 
 namespace BandEr.API
@@ -10,8 +11,14 @@ namespace BandEr.API
             CreateWebHostBuilder(args).Build().Run();
         }
 
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args)
+        {
+            var builder = WebHost.CreateDefaultBuilder(args);
+            if (args.Any(x => string.Equals("memory", x, System.StringComparison.OrdinalIgnoreCase)))
+                builder.UseStartup<InMemoryStartup>();
+            else
+                builder.UseStartup<Startup>();
+            return builder;
+        }
     }
 }
