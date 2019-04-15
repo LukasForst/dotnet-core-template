@@ -9,3 +9,9 @@ I hope this is not gonna be a disaster.
 cd BandEr.API/
 dotnet run
 ```
+
+# How to run in memory on any platform
+```bash
+cd BandEr.API/
+dotnet run -- memory
+```
