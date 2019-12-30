@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <Nullable>enable</Nullable>
+        <LangVersion>8.0</LangVersion>
+
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Content Include="..\Configuration\SharedSettings.json" Link="SharedSettings.json" CopyToPublishDirectory="Always" CopyToOutputDirectory="Always" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Common\Common.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.0" />
+        
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.0">
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.0" />
+        <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="3.1.0" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.0" />
+        <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="3.1.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Folder Include="Migrations" />
+        <Folder Include="Repositories" />
+    </ItemGroup>
+
+</Project>
