@@ -8,6 +8,6 @@ namespace Common.Configuration
         /// <summary>
         ///     Secret used for the JWT singing.
         /// </summary>
-        public string Secret { get; set; }
+        public string Secret { get; set; } = "YellowHorseSeemsToBeCorrectSecret";
     }
 }

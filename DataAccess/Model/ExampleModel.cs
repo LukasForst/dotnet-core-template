@@ -5,6 +5,11 @@ namespace DataAccess.Model
     /// </summary>
     public class ExampleModel : AbstractEntity
     {
+        public ExampleModel(string something)
+        {
+            Something = something;
+        }
+
         public string Something { get; set; }
     }
 }

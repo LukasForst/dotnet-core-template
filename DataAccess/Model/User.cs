@@ -6,6 +6,15 @@ namespace DataAccess.Model
     // ReSharper disable once ClassNeverInstantiated.Global -- db entity without insert
     public class User : AbstractEntity
     {
+        public User(string firstName, string lastName, string username, string passwordHash, string role)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            Username = username;
+            PasswordHash = passwordHash;
+            Role = role;
+        }
+
         /// <summary>
         ///     User first name.
         /// </summary>
