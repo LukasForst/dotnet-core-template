@@ -6,11 +6,14 @@ namespace DotnetApp.Configuration
     /// <summary>
     ///     Dependency injection container settings.
     /// </summary>
-    public class DependencyInjectionContainer
+    public class DependencyInjectionConfiguration
     {
+        /// <summary>
+        ///     Name of the environment the application runs in.
+        /// </summary>
         private readonly string environmentName;
 
-        public DependencyInjectionContainer(string environmentName)
+        public DependencyInjectionConfiguration(string environmentName)
         {
             this.environmentName = environmentName;
         }

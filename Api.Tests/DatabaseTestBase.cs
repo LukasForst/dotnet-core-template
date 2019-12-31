@@ -120,7 +120,7 @@ namespace Api.Tests
 
         private IServiceProvider BuildDi(IServiceCollection services)
         {
-            var diContainer = new DependencyInjectionContainer("Test");
+            var diContainer = new DependencyInjectionConfiguration("Test");
             diContainer.Register(services);
 
             return services.BuildServiceProvider();

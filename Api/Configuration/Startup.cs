@@ -41,9 +41,9 @@ namespace DotnetApp.Configuration
             ConfigureSwagger(services);
         }
 
-        private DependencyInjectionContainer CreateDiContainer()
+        private DependencyInjectionConfiguration CreateDiContainer()
         {
-            return new DependencyInjectionContainer(environment.EnvironmentName);
+            return new DependencyInjectionConfiguration(environment.EnvironmentName);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

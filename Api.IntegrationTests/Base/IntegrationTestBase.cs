@@ -25,7 +25,7 @@ namespace Api.IntegrationTests.Base
         /// <summary>
         ///     Performs authorization call and sets header to client.
         /// </summary>
-        protected async Task<(HttpResponseMessage, TokenDto)> Authorize(
+        protected async Task<(HttpResponseMessage, TokenDto?)> Authorize(
             HttpClient? httpClient,
             string username = "admin", string password = "hello",
             bool ensure = true
