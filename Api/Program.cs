@@ -32,10 +32,11 @@ namespace DotnetApp
 
                     config
                         .AddJsonFile(publishedPath, true) // When compiled and deployed
-                        .AddJsonFile(developmentPath, false) // When running using dotnet run
+                        .AddJsonFile(developmentPath, true) // When running using dotnet run
                         .AddJsonFile("appsettings.json", false)
                         .AddJsonFile($"appsettings.{env.EnvironmentName}.json", true)
                         .AddEnvironmentVariables()
+                        .AddCommandLine(args)
                         .Build();
                 })
                 .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); });

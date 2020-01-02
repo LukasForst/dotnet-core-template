@@ -1,0 +1,26 @@
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build-env
+WORKDIR /app
+
+# Copy sln project to the build folder
+COPY DotnetApp.sln ./
+
+# Copy csproj
+COPY Common/*.csproj /app/Common/
+COPY DataAccess/*.csproj /app/DataAccess/
+COPY Api/*.csproj /app/Api/
+
+# Copy test csproj
+COPY Common.Tests/*.csproj /app/Common.Tests/
+COPY DataAccess.Tests/*.csproj /app/DataAccess.Tests/
+COPY Api.Tests/*.csproj /app/Api.Tests/
+
+# Restore dependencies
+WORKDIR /app/Api.Tests
+RUN dotnet restore
+
+# Copy everything else
+WORKDIR /app
+COPY . ./
+
+# Execute tests
+RUN dotnet test

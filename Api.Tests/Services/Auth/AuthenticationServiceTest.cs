@@ -49,7 +49,7 @@ namespace Api.Tests.Services.Auth
             var token = await authService.Authenticate("john-doe", "hello");
 
             Assert.NotNull(token);
-            Assert.NotEmpty(token.Token);
+            Assert.NotEmpty(token!.Token);
         }
     }
 }

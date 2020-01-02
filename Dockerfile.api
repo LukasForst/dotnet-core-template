@@ -1,0 +1,37 @@
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build-env
+WORKDIR /app
+
+# Copy sln project to the build folder
+COPY DotnetApp.sln ./
+
+# Copy csproj
+COPY Common/*.csproj /app/Common/
+COPY DataAccess/*.csproj /app/DataAccess/
+COPY Api/*.csproj /app/Api/
+
+# Restore dependencies
+WORKDIR /app/Api
+RUN dotnet restore
+
+# Copy everything else and build
+WORKDIR /app
+COPY . ./
+
+# Publish API under the given profile (Release|Debug)
+ARG app_build_profile=Debug
+WORKDIR /app/Api
+RUN dotnet publish -c ${app_build_profile} -o out
+
+# Build runtime image
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.1
+WORKDIR /app
+
+COPY --from=build-env /app/Api/out .
+
+# Configure used profile
+ENV ASPNETCORE_ENVIRONMENT=Development
+ENV ASPNETCORE_URLS="http://0.0.0.0:5000"
+
+EXPOSE 5000
+
+ENTRYPOINT ["./Api", "db-env=DockerCompose"]

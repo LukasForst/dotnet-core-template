@@ -1,6 +1,22 @@
 version: '3.4'
 
 services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+      args:
+        app_build_profile: Debug
+    container_name: api
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    ports:
+      - 5000:5000
+    links:
+      - db
+    depends_on:
+      - db
+
   db:
     build:
       context: ./Database

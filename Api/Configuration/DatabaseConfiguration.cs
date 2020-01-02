@@ -4,6 +4,7 @@ using DataAccess.Context;
 using DataAccess.Model;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace DotnetApp.Configuration
@@ -20,7 +21,19 @@ namespace DotnetApp.Configuration
         {
             services.AddDbContext<AppDbContext>(x =>
                 // use default connection string
-                x.UseSqlServer(configuration.ResolveConnectionString(ConnectionString.Default)));
+                x.UseSqlServer(ObtainConnectionString()));
+        }
+
+        private string ObtainConnectionString()
+        {
+            var connectionString = configuration.GetValue<string>("connection-string");
+            if (connectionString == null)
+            {
+                var connectionStringOption = configuration.GetValue("db-env", ConnectionString.Default);
+                connectionString = configuration.ResolveConnectionString(connectionStringOption);
+            }
+
+            return connectionString;
         }
 
 

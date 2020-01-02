@@ -42,7 +42,6 @@ namespace DotnetApp.Configuration
         private void ConfigureScoped(IServiceCollection services)
         {
             services.AddScoped<AuthenticationService>();
-            services.AddScoped<EncodingService>();
             services.AddScoped<PrincipalService>();
         }
     }

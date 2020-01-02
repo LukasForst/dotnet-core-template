@@ -1,3 +1,5 @@
+using System;
+
 namespace DataAccess.Model
 {
     /// <summary>
@@ -39,5 +41,24 @@ namespace DataAccess.Model
         ///     Role name. Plain string that should correspond to the roles defined in Roles class.
         /// </summary>
         public string Role { get; set; }
+
+        protected bool Equals(User other)
+        {
+            return Id == other.Id && FirstName == other.FirstName && LastName == other.LastName && Username == other.Username &&
+                   PasswordHash == other.PasswordHash && Role == other.Role;
+        }
+
+        public override bool Equals(object? obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != GetType()) return false;
+            return Equals((User) obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Id, FirstName, LastName, Username, PasswordHash, Role);
+        }
     }
 }

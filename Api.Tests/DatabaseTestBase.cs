@@ -24,7 +24,7 @@ namespace Api.Tests
         /// <summary>
         ///     DbContext instance.
         /// </summary>
-        protected virtual AppDbContext DbContext => Services.GetService<AppDbContext>();
+        protected virtual AppDbContext DbContext => GetService<AppDbContext>();
 
         /// <summary>
         ///     Returns instance of the requested service of type T.

@@ -12,20 +12,13 @@ add-migration:
 	(cd DataAccess && exec dotnet ef migrations add $(NAME) -o Migrations)
 
 unit-tests:
-	for d in *.Tests/ ; do					\
-	    if [ -d "$d" ]; then				\
-	    	(cd "$d" && exec dotnet test)	\
-        fi									\
-	done
-
-integration-tests:
-	for d in *.IntegrationTests/ ; do		\
-	    if [ -d "$d" ]; then				\
-	    	(cd "$d" && exec dotnet test)	\
-        fi									\
-	done
-
-all-tests: unit-tests integration-tests
+	for d in *.Tests; do (cd "$$d" && exec dotnet test) ; done ;
+    
+integration-tests: run-db
+	for d in *.IntegrationTests; do (cd "$$d" && exec dotnet test) ; done ;
+	
+all-tests:
+	dotnet test
 
 run: run-db
 	(cd Api && exec dotnet run)
