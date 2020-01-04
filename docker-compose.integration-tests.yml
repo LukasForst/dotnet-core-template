@@ -1,0 +1,16 @@
+version: '3.4'
+
+services:
+  integration-tests:
+    build:
+      context: .
+      dockerfile: Dockerfile.integration-tests.pipeline
+      args:
+        app_build_profile: Debug
+    container_name: integration-tests
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    links:
+      - db
+    depends_on:
+      - db

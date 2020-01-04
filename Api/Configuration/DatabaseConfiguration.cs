@@ -26,13 +26,13 @@ namespace Api.Configuration
 
         private string ObtainConnectionString()
         {
-            var connectionString = configuration.GetValue<string>("connection-string");
+            var connectionString = configuration.GetValue<string>("API_CONNECTION_STRING");
             if (connectionString == null)
             {
-                var connectionStringOption = configuration.GetValue("db-env", ConnectionString.Default);
+                var connectionStringOption = configuration.GetValue("API_DB_ENV", ConnectionString.Default);
                 connectionString = configuration.ResolveConnectionString(connectionStringOption);
             }
-
+            
             return connectionString;
         }
 

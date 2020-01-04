@@ -24,5 +24,15 @@ RUN dotnet restore
 # Copy everything else
 COPY . ./
 
+WORKDIR /app/Api.IntegrationTests
+# Copy scripts
+COPY Scripts/wait-for-it.sh ./
+RUN chmod +x wait-for-it.sh
+
+COPY Scripts/integration-tests-pipeline.sh ./
+RUN chmod +x integration-tests-pipeline.sh
+
+ENV API_DB_ENV=DockerCompose
+
 # Execute tests
-RUN for d in *.Tests; do (cd "$d" && exec dotnet test) ; done ;
+CMD ["/bin/sh", "-c", "/app/Api.IntegrationTests/integration-tests-pipeline.sh"]
