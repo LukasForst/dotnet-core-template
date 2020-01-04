@@ -1,8 +1,8 @@
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
-using DotnetApp.Configuration;
-using DotnetApp.DTO.Auth;
+using Api.Configuration;
+using Api.DTO.Auth;
 using Microsoft.AspNetCore.Mvc.Testing;
 
 namespace Api.IntegrationTests.Base

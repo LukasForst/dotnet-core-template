@@ -3,15 +3,15 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using Api.DTO.Auth;
 using Common.Configuration;
 using DataAccess.Context;
-using DotnetApp.DTO.Auth;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 
-namespace DotnetApp.Services.Auth
+namespace Api.Services.Auth
 {
     /// <summary>
     ///     Service used for user authentication.

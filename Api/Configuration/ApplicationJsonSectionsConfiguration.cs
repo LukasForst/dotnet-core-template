@@ -1,7 +1,7 @@
 using Common.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace DotnetApp.Configuration
+namespace Api.Configuration
 {
     /// <summary>
     ///     Partial part which is used for the registering JSON dtos settings.

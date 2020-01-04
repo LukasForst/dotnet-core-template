@@ -7,7 +7,6 @@
 
         <UserSecretsId>aspnet-DotnetApp-D9DB6193-F7D3-4DBE-A6AA-52A6D33D1AFD</UserSecretsId>
         <WebProject_DirectoryAccessLevelKey>0</WebProject_DirectoryAccessLevelKey>
-        <RootNamespace>DotnetApp</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>

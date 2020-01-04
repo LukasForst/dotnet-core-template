@@ -1,11 +1,11 @@
+using Api.Configuration;
 using Common.Configuration;
-using DotnetApp.Configuration;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace DotnetApp
+namespace Api
 {
     public static class Program
     {

@@ -5,7 +5,7 @@ using DataAccess.Context;
 using DataAccess.Model;
 using Microsoft.Extensions.Logging;
 
-namespace DotnetApp.Services.Auth
+namespace Api.Services.Auth
 {
     /// <summary>
     ///     Service which maps user claims to user db object.

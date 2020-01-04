@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 
-namespace DotnetApp.Configuration
+namespace Api.Configuration
 {
     /// <summary>
     ///     Authorization and authentication settings.

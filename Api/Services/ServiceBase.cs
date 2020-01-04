@@ -2,7 +2,7 @@ using Common.Utils;
 using DataAccess.Context;
 using Microsoft.Extensions.Logging;
 
-namespace DotnetApp.Services
+namespace Api.Services
 {
     /// <summary>
     ///     Base class for the services which contains <see cref="DbContext" />.

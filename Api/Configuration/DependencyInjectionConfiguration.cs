@@ -1,7 +1,7 @@
-using DotnetApp.Services.Auth;
+using Api.Services.Auth;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace DotnetApp.Configuration
+namespace Api.Configuration
 {
     /// <summary>
     ///     Dependency injection container settings.

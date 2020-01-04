@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
+using Api.Services.Auth;
 using DataAccess.Context;
 using DataAccess.Model;
-using DotnetApp.Services.Auth;
 using Xunit;
 
 namespace Api.Tests.Services.Auth

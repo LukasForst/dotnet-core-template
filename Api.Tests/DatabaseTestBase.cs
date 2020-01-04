@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
+using Api.Configuration;
 using Common.Configuration;
 using DataAccess.Context;
-using DotnetApp.Configuration;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;

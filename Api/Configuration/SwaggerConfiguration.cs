@@ -1,8 +1,11 @@
+using System.Collections.Generic;
 using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using NSwag;
 using NSwag.Generation.Processors.Security;
 
-namespace DotnetApp.Configuration
+namespace Api.Configuration
 {
     /// <summary>
     ///     Swagger configuration.
@@ -14,12 +17,17 @@ namespace DotnetApp.Configuration
         /// </summary>
         private void ConfigureSwagger(IServiceCollection services)
         {
-            // TODO configure enum to string converter
             services.AddOpenApiDocument(config =>
             {
                 config.Title = "Example .NET Core Base Application";
                 config.Version = "v1";
                 config.Description = "An example .NET Core application";
+
+                config.SchemaGenerator.Settings.SerializerSettings = new JsonSerializerSettings
+                {
+                    ContractResolver = config.SchemaGenerator.Settings.ActualContractResolver,
+                    Converters = new List<JsonConverter> { new StringEnumConverter() }
+                };
 
                 config.AddSecurity("JWT", new OpenApiSecurityScheme
                 {

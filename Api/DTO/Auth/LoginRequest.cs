@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
 
-namespace DotnetApp.DTO.Auth
+namespace Api.DTO.Auth
 {
     /// <summary>
     ///     DTO for user login.

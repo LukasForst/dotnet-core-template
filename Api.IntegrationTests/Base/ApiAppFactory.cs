@@ -1,4 +1,4 @@
-﻿using DotnetApp.Configuration;
+﻿using Api.Configuration;
 using Microsoft.AspNetCore.Mvc.Testing;
 
 namespace Api.IntegrationTests.Base

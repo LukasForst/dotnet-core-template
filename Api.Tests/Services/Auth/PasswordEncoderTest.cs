@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Api.Services.Auth;
 using Common.Configuration;
-using DotnetApp.Services.Auth;
 using Microsoft.Extensions.Options;
 using Xunit;
 

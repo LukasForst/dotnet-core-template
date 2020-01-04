@@ -56,7 +56,7 @@ namespace DataAccess.Context
             return new ConfigurationBuilder()
                 .AddJsonFile(publishedPath, true) // When compiled and deployed
                 .AddJsonFile(developmentPath, true) // When running using dotnet run
-                .AddJsonFile("appsettings.json", false)
+                .AddJsonFile("appsettings.json", true)
                 .Build();
         }
 

@@ -1,11 +1,11 @@
 using System.Threading.Tasks;
+using Api.DTO.Auth;
+using Api.Services.Auth;
 using DataAccess.Model;
-using DotnetApp.DTO.Auth;
-using DotnetApp.Services.Auth;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace DotnetApp.Controllers
+namespace Api.Controllers
 {
     /// <summary>
     ///     Controller for the user interaction.

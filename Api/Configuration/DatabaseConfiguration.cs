@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace DotnetApp.Configuration
+namespace Api.Configuration
 {
     /// <summary>
     ///     Database configuration settings.

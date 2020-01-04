@@ -4,7 +4,7 @@ using System.Security.Cryptography;
 using Common.Configuration;
 using Microsoft.Extensions.Options;
 
-namespace DotnetApp.Services.Auth
+namespace Api.Services.Auth
 {
     /// <summary>
     ///     Class provides methods for the password hashing and matching the passwords to the given hashes.

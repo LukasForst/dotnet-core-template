@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using Common.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -6,7 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace DotnetApp.Configuration
+namespace Api.Configuration
 {
     public sealed partial class Startup
     {
@@ -27,7 +28,12 @@ namespace DotnetApp.Configuration
             // unfortunately it is not possible to obtain logger factory for some reason 
             // for that reason, it is not possible to log inside this configuration method
 
-            services.AddControllers();
+            services.AddControllers()
+                .AddJsonOptions(options =>
+                {
+                    var converters = options.JsonSerializerOptions.Converters; 
+                    converters.Add(new JsonStringEnumConverter());
+                });
 
             ConfigureApplicationJsonSections(services);
 
